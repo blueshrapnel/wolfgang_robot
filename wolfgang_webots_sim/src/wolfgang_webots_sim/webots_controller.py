@@ -155,6 +155,8 @@ class WebotsController:
         self.rotation_field = self.robot_node.getField("rotation")
         self.world_info = self.supervisor.getFromDef("world_info")
 
+        self.ball_node = self.supervisor.getFromDef('ball')
+        self.ball_translation_field = self.ball_node.getField("translation")
 
         # publish camera info once, it will be latched
         self.cam_info = CameraInfo()
@@ -418,3 +420,9 @@ class WebotsController:
 
     def get_robot_pose_quat(self):
         return self.get_robot_position(), self.get_robot_orientation_quat()
+
+    def set_ball_pose(self, pos):
+        self.ball_translation_field.setSFVec3f(list(pos))
+
+    def get_ball_pose(self):
+        return self.ball_translation_field.getSFVec3f()
