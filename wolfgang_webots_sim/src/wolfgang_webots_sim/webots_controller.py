@@ -425,6 +425,7 @@ class WebotsController:
     def set_ball_pose(self, pos):
         if self.ball_node:
             self.ball_translation_field.setSFVec3f(list(pos))
+            self.ball_node.resetPhysics()
 
     def get_ball_pose(self):
         if self.ball_node:
