@@ -39,8 +39,6 @@ class WebotsController:
             self.supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_REAL_TIME)
         elif mode == 'paused':
             self.supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_PAUSE)
-        elif mode == 'run':
-            self.supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_RUN)
         elif mode == 'fast':
             self.supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_FAST)
         else:
@@ -62,7 +60,7 @@ class WebotsController:
             accel_name = "imu accelerometer"
             gyro_name = "imu gyro"
             camera_name = "camera"
-            pressure_sensor_names = ["llb", "llf", "lrf", "lrb", "rlb", "rlf", "rrf", "rrb"]
+            pressure_sensor_names = []  # ["llb", "llf", "lrf", "lrb", "rlb", "rlf", "rrf", "rrb"]
             self.pressure_sensors = []
             for name in pressure_sensor_names:
                 sensor = self.supervisor.getTouchSensor(name)
