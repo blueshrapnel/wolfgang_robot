@@ -428,3 +428,7 @@ class WebotsController:
     def get_ball_pose(self):
         if self.ball_node:
             return self.ball_translation_field.getSFVec3f()
+
+    def get_ball_velocity(self):
+        if self.ball_node:
+            return self.ball_node.getVelocity()
